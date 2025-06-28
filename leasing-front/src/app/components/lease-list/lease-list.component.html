@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Liste des Leases</h2>
+  <button class="btn btn-primary mb-3" routerLink="/leases/new">Créer un Lease</button>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Client</th>
+      <th>Voiture</th>
+      <th>Début</th>
+      <th>Fin</th>
+      <th>Date retour</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let lease of leases$ | async">
+        <td>{{ lease.id }}</td>
+        <td>{{ lease.customer.id }}</td>
+        <td>{{ lease.car.id }}</td>
+        <td>{{ lease.startDate | date:'dd/MM/yyyy HH:mm'}}</td>
+        <td>{{ lease.endDate | date:'dd/MM/yyyy HH:mm'}}</td>
+        <td>{{ lease.actualReturnDate | date:'dd/MM/yyyy HH:mm'}}</td>
+        <td>
+          <button class="btn btn-danger btn-sm"
+                  (click)="openConfirm(lease.id)">Retour</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <app-confirm-modal
+          [visible]="showModal"
+          [title]="'Retour véhicule'"
+          [message]="'Confirmez-vous le retour du véhicule ?'"
+          (confirm)="confirmReturn()"
+          (cancel)="cancelReturn()">
+  </app-confirm-modal>
+</div>

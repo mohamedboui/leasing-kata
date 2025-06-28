@@ -1,0 +1,48 @@
+# ====== GLOBAL GITIGNORE POUR PROJET FULLSTACK ======
+
+# === BACKEND JAVA / SPRING BOOT ===
+**/target/
+**/build/
+**/.classpath
+**/.project
+**/.settings/
+**/.idea/
+**/*.iml
+**/logs/
+**/out/
+
+# === MAVEN WRAPPER ===
+**/.mvn/
+**/mvnw
+**/mvnw.cmd
+
+# === FRONTEND ANGULAR / NODE ===
+**/node_modules/
+**/dist/
+**/.angular/
+**/.env
+**/.env.local
+**/.turbo/
+**/.cache/
+**/.output/
+**/.vite/
+**/coverage/
+
+# === SYSTÈME / OS ===
+.DS_Store
+Thumbs.db
+
+# === IDE & ÉDITEURS ===
+.vscode/
+*.log
+
+# === TEST / TEMPORAIRE ===
+*.tmp
+*.swp
+*.bak
+*.old
+*.orig
+
+# === GIT ===
+*.orig
+*.rej
